@@ -55,36 +55,46 @@ ApplicationWindow {
             Rectangle {
                 id: displayBackground
                 width: parent.width
-                height: 120
+                height: 140
                 color: "#04bfad"
                 radius: 20
 
-                Column {
-                    anchors.fill: parent
-                    anchors.margins: 10
+                Image {
+                    source: "file:///путь файла/pic.png"
+                    width: 320
+                    height: 20
+                    smooth: true
+                    anchors.top: parent.top
+                    anchors.left: parent.left
+                }
+                Text {
+                    text: calc.expression
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    anchors.rightMargin: 20
+                    font.pixelSize: 16
+                    color: "white"
+                    opacity: 0.8
+                }
+                Text {
+                    text: calc.display
+                    anchors.right: parent.right
+                    anchors.bottom: parent.bottom
+                    anchors.rightMargin: 20
+                    anchors.bottomMargin: 10
 
-                    Text {
-                        text: calc.expression
-                        color: "white"
-                        horizontalAlignment: Text.AlignRight
-                        width: parent.width
-                    }
-
-                    Text {
-                        text: calc.display
-                        font.pixelSize: 32
-                        color: "white"
-                        horizontalAlignment: Text.AlignRight
-                        width: parent.width
-                    }
+                    font.pixelSize: 42
+                    font.bold: true
+                    color: "white"
                 }
             }
 
             Grid {
                 columns: 4
-                spacing: 8
+                spacing: 20
                 anchors.top: displayBackground.bottom
                 anchors.horizontalCenter: parent.horizontalCenter
+                anchors.topMargin: 20
 
                 Repeater {
                     model: [
@@ -95,9 +105,9 @@ ApplicationWindow {
                         "C","0",".","="]
 
                     delegate: Rectangle {
-                        width: 70
-                        height: 70
-                        radius: 35
+                        width: 50
+                        height: 50
+                        radius: 25
 
                         color: (mouseArea.pressed ? getPressedColor(modelData) : getColor(modelData))
 

@@ -15,10 +15,13 @@ qt_add_executable(appcalcqml
 qt_add_qml_module(appcalcqml
     URI calcqml
     VERSION 1.0
+
     QML_FILES
         Main.qml
-        SOURCES calculator.h
-        SOURCES calculator.cpp
+
+    SOURCES
+        calculator.h
+        calculator.cpp
 )
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
